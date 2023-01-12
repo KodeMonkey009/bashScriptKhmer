@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" style="scroll-behavior: smooth;">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../dist/output.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Khmer:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Bash Script </title>
+  </head>
+  <body class="overflow-x-hidden">
+    <div class="hidden md:block">
+      <div
+      class="drawer drawer-mobile max-w-[300px] top-0 left-0 h-full fixed shadow-md"
+    >
+      <div class="drawer-side w-full">
+        <div class="py-6 px-8 text-left text-3xl font-bold">
+          Shell Scripting
+        </div>
+        <ul class="menu p-4 w-80 bg-base-100 text-base-content text-xl">
+          <!-- Sidebar content here -->
+          <li><a href="#Introduction">Introduction</a></li>
+          <li><a href="#variable">Variables</a></li>
+          <li><a href="#Input_and_Output">Input and Output</a></li>
+          <li><a href="#Operator">Operator</a></li>
+          <li><a href="#If_statement">If statement</a></li>
+          <li><a href="#Loop_statement">Loop Statement</a></li>
+          <li><a href="#case_statement">Swtich case</a></li>
+          <li><a href="#function">Function</a></li>
+        </ul>
+      </div>
+    </div>
+    </div>
+
+    <section class="containers" id="Introduction">
+      <h1 class="text-4xl py-6 mt-10 px-4 font-bold text-blue-600">
+        1. Introduction
+      </h1>
+      <article class="prose px-20 py-5">
+
+        <!-- =================== >  What is Shell <=================================== -->
+        <div class="intro_what_is_shell font-khmer mb-20">
+          <h2 class="text-3xl font-semibold">
+            តើអ្វីទៅជា Shell?
+          </h2>
+          <p class="text-xl my-5">
+           😂The shell is command interpreter ប្រើប្រាស់សម្រាប់បញ្ជា Linux Do Thing. 
+             The shell មិនគ្រាន់តែជា command interpreter ទេ ក៏ជា Programming Language ដែរ។
+            <p class="text-xl">😃The Shell ចែកចេញជាពី Categories: </p>
+            <ul class="list-disc ml-6 text-xl py-1">
+              <li>Grapical Shell      : ប្រើ Interface</li>
+              <li>Command Line Shell  : ប្រើ Command Line</li>
+            </ul>
+            <p class="text-xl my-2">😊ប្រភេទនៃ Shell នៅលើ Linux មានច្រើនប្រភេទ ដោយក្នុងនេះយើងនឹងរើសយក Bash Shell មកប្រើ</p>
+             <img
+             class="w-100" 
+             src="./image/linux-shell.png" 
+             alt="">
+          </p>
+
+        </div>
+        <!-- =================== >  End <=================================== -->
+
+
+        <!-- =================== >  What is Bash Scripting <=================================== -->
+        <div class="intro_what_is_shell font-khmer text-xl my-10">
+          <h2 class="text-3xl font-semibold">
+            តើអ្វីទៅជា Bash Scripting?
+          </h2>
+          <p class="text-xl my-5">
+           😂Bash Scripting គឺជា Command line សរសេរក្នុង File ហើយអាចយកវាទៅ Run លើ Bash Program។ វាដំណើរការកូដ Line by Line។
+           Example : Create Folder, Navigation path…  យើង  អាច Save វានិង Run វាបាន ច្រើនដង។
+          </p>
+        </div>
+
+        <!-- =================== >  How to Identify Bash Scripting <=================================== -->
+        <div class="intro_what_is_shell font-khmer text-xl my-10">
+          <h2 class="text-3xl font-semibold">
+            តើសម្គាល់ Bash Script តាមរយៈអ្វី?
+          </h2>
+          <p class="text-xl my-5">
+            យើងអាចសម្គាស់ Bash Script តាមរយៈ ២ វិធី៖
+            <ul class="list-disc ml-6 text-xl py-1">
+              <li>File Extension of <code class="px-2 py-1 bg-slate-900 text-yellow-300">.sh</code></li>
+              <li>Scripts ចាប់ផ្តើមដោយ bash bang ឬ shebang <code class="py-1 px-2 bg-slate-800 text-yellow-300">#! bin/bash</code></li>
+            </ul>
+          </p>
+        </div>
+
+        <!-- =================== >  How to create Bash Script <=================================== -->
+        <div class="intro_what_is_shell font-khmer text-xl my-10">
+          <h2 class="text-3xl font-semibold">
+            របៀបបង្កើត File Bash Script
+          </h2>
+          <p class="text-xl mt-5">
+             ក្នុងនេះដែរយើងបង្កើត File bash Script មួយឈ្មោះ <code class="py-1 px-2 bg-slate-800 text-yellow-300">touch hi_mom.sh</code>
+          </p>
+          <p class="text-xl my-2">
+             ស្វែងរក path របស់ Bash Shell ប្រើ Command <code class="py-1 px-2 bg-slate-800 text-yellow-300">which $SHELL</code>
+         </p>
+         <p class="text-xl my-2 font-semibold">សរសេរ Command ក្នុង File</p>
+         <code class="bg-slate-200 rounded-none flex flex-col">
+           <p>#! bin/bash</p> 
+           <p>echo "Hi Mom!";</p> 
+           <p>echo "I love Mom!";</p> 
+           <p>echo "How are you doing? Mom!";</p> 
+         </code>
+         <p class="text-xl my-2">
+            ដើម្បី Run Script ប្រើ Command : <code class="py-1 px-2 bg-slate-800 text-yellow-300 font-thin">bash hi_mom.sh</code>
+         </p>
+
+         <p class="text-xl my-2">
+           លទ្ធផល
+           <img class="my-2" src="./image/script_output.png" alt="" max-width="60%">
+          </p>
+
+          <p class="text-xl mt-10">
+             ✍ យើងអាច Run File តាមរយៈ ១ វិធីទៀត គឺប្រើ <code class="py-1 px-2 text-[16px] bg-slate-800 text-yellow-300 font-thin">./hi_mom.sh</code> <br>
+             ប៉ុន្តែត្រូវ change user permission ហើយយើងអាច check មើល permission នៃ file ដោយប្រើ command <code class="py-1 px-2 text-[16px] bg-slate-800 text-yellow-300 font-thin">ls -l hi_mom.sh</code> <br>
+             ដើម្បី change file permission ប្រើ command <code class="py-1 px-2 text-[16px] bg-slate-800 text-yellow-300 font-thin">chmod +x hi_mom.sh</code>
+
+           </p>
+        </div>
+      </article>
+    </section>
+
+
+
+    <section class="containers" id="variable">
+      <h1 class="text-4xl pt-6 pb-3 mt-10 px-4 font-bold text-blue-600">
+        2. Variables
+      </h1>
+       <article class="prose px-20 py-5 font-khmer">
+          <p class="text-xl">
+            Variables គឺជាអញ្ញត្តិប្រើសម្រាប់ផ្ទុកនូវតំលៃ ឬទិន្នន័យ។ ឧទារហណ៍ សម្រាប់ផ្ទុកនូវឈ្មោះទំនិញ, តំលៃទំនិញ...។ <br>
+            ហើយទាក់ទឹងច្បាប់នៃការប្រកាសឈ្មោះនៃ Variable គឺដូចទៅនឹង Programming Language ផ្សេងៗទៀតដែរ។ 
+        </p>
+         <div class="variable_name font-khmer my-5">
+            <h2 class="text-3xl font-semibold">
+                Define and Access Variable
+            </h2>
+
+            <p class="text-xl">
+              <p class="my-2 text-xl">បន្ទាប់ពីប្រកាសឈ្មោះ Variable រួចយើងអាច ផ្តល់តម្លៃឲ្យបានដូចនឹង Programming ដ៏ទៃទៀតដែរគឺប្រើសញ្ញាស្មើរ។ ប្រសិនបើចង់ យកតម្លៃរបស់ Variable មកប្រើវិញ
+                យើងត្រូវប្រើ Dollar Sign($)ដាក់ពីមុខឈ្មោះ Vairable។ </p>
+              <p class="text-xl">Example: </p>
+              <code class="bg-slate-200 rounded-none flex flex-col">
+                <p>#! bin/bash</p> 
+                <p class="my-2">Name="hi mom"; <code class="py-1 px-2 bg-slate-800 text-yellow-300 font-thin font-khmer text-[14px]">ផ្តល់តម្លៃទៅឲ្យអញ្ញាត្តិ</code></p> 
+                <p>echo $Name;<code class="py-1 px-2 bg-slate-800 text-yellow-300 font-thin font-khmer text-[14px]">យកតម្លៃអញ្ញាត្តិមកប្រើវិញ</code></p> 
+              </code>
+              <p class="text-xl my-2 mt-5">ប្រសិនបើយើងប្រកាស Variable ដែរមិនចង់ឲ្យគេអាចកែប្រែតំលៃបានគឺត្រូវប្រើ
+                <code class="py-1 px-2 bg-slate-800 text-yellow-300 font-thin font-khmer text-[14px]">readonly variable_name</code></p>
+              </p>
+              <p class="text-xl my-2 mt-5">ប្រសិនបើយើងចង់ឲ្យ Variable មួយមិនអាច Ascess យកតម្លៃមកបានគឺត្រូវប្រើ
+                <code class="py-1 px-2 bg-slate-800 text-yellow-300 font-thin font-khmer text-[14px]">unset variable_name</code></p>
+              </p>
+            </p>
+         </div>
+
+
+         <div class="variable_name font-khmer my-5">
+          <h2 class="text-3xl font-semibold">
+              Start With Real World
+          </h2>
+
+          <p class="text-xl">
+              <p class="text-xl my-2">ក្នុងនេះដែរយើងនឹង ចាប់ធ្វើបន្តនូវលំហាត់របស់យើងការពីមេរៀនមុន។ ដោយក្នុងលំហាត់មុន យើងឃើញថាមានពាក្យ Mom! ច្រើនជាន់គ្នាច្រើនដង ដើម្បីដោះស្រាយបញ្ហានេះ
+                គឹយើងប្រកាស Vairable មួយ ឈ្មោះ NAME ហើយផ្ទុកតំលៃ Mom!។</p>
+          </p>
+          <code class="bg-slate-200 rounded-none flex flex-col">
+            <p>#! bin/bash</p> 
+            <p>NAME='Mom!';</p> 
+            <p>echo "Hi $NAME";</p> 
+            <p>echo "I love $NAME";</p> 
+            <p>echo "How are you doing? $NAME";</p> 
+          </code>
+
+          <p class="text-xl my-2">
+            លទ្ធផល(ដូចខាងលើដែរ)
+            <img class="my-2" src="./image/script_output.png" alt="" max-width="60%">
+           </p>
+       </div>
+       </article>
+    </section>
+
+
+    <section class="containers" id="Input_and_Output">
+      <h1 class="text-4xl pt-6 pb-3 mt-10 px-4 font-bold text-blue-600">
+          3. Output and Input
+      </h1>
+      <article class="prose px-20 py-5 font-khmer">
+          <p class="text-xl">
+              យើងបានធ្លាប់រៀនពីមេរៀនមុនរួចមកហើយ ប្រសិនបើចង់បង្ហាញតំលៃគឺយើងត្រូវប្រើ Keyword "echo" ប៉ុន្តែបើយើងចង់បញ្ចូលតំលៃពីក្តាចុចអាចប្រើ Keyword "read" បាន។
+          </p>
+          <p class="text-xl my-2">
+              Example :   
+          </p>
+          <code class="bg-slate-200 rounded-none flex flex-col">
+            <p>#! bin/bash</p> 
+            <p>echo "Input your name : ";</p> 
+            <p>read NAME</p>
+            <p>echo "Hi $NAME";</p> 
+            <p>echo "I love $NAME";</p> 
+            <p>echo "How are you doing? $NAME";</p> 
+          </code>
+           <p class="text-xl my-2">
+              Output : 
+           </p>
+           <img 
+           class="my-2"
+           src="./image/read_output.png" max-width="60%" alt="">
+      </article>
+    </section>
+
+    <section class="containers" id="Operator">
+      <h1 class="text-4xl pt-6 pb-3 mt-10 px-4 font-bold text-blue-600">
+        4. Operator
+     </h1>
+
+      <article class="prose px-20 py-5 font-khmer">
+        <p class="text-xl font-khmer">អាចស្វែងយល់បន្ថែម តាមរយៈលីងនេះ​ --><a href="https://www.tutorialspoint.com/unix/unix-basic-operators.htm" class="link link-info">Operator</a></p>
+      </article>
+
+
+    </section>
+
+
+    <section class="containers" id="If_statement">
+      <h1 class="text-4xl pt-6 pb-3 mt-10 px-4 font-bold text-blue-600">
+        5. If Statement
+     </h1>
+     <article class="prose px-20 py-5 font-khmer">
+        <p class="text-xl">If else statement ប្រើសម្រាប់កំណត់លក្ខខណ្ឌក្នុងការដំណើរកា shell ។ វាពិនិត្យមើលលក្ខខណ្ឌហើយដំណើកា statement 1 បើមិនពិតវាដំណើការ statement បន្ទាប់ ប្រសិនបើមិនលក្ខខណ្ឌពិតវានិងដំណើការ else statement ។</p>
+        <p class="text-xl my-2">
+          Example :   
+        </p>
+      <code class="bg-slate-200 rounded-none flex flex-col">
+        <p>#! bin/bash</p> 
+        <p>$a=2</p> 
+        <p>if [ $a == 1 ]</p>
+        <p><p>  </p>echo "Value of a is one."</p> 
+        <p>else if [ $a == 2 ]</p> 
+        <p>echo "Value of a is two"</p> 
+        <p>else</p> 
+        <p>echo "None."</p> 
+      </code>
+      <p class="text-xl my-2">
+        Output :   <p class="text-blue-500">Value of a is one.</p>
+      </p>
+      </article>
+    </section>
+
+    <section class="containers" id="Loop_statement">
+      <h1 class="text-4xl pt-6 pb-3 mt-10 px-4 font-bold text-blue-600">
+        6. Loop Statement
+     </h1>
+     <article class="prose px-20 py-5 font-khmer">
+        <p class="text-xl">Loop គឺជាបណ្តុំនៃកូដ ដែលវាធ្វើម្តងហើយម្តងទៀត រហូតដល់ជួបលក្ខខ័ណ្ឌមិនពិតទើបវាឈប់ធ្វើការ។ Loop មាន for Loop, while loop, until loop។</p>
+        
+        <div class="for_loop">
+          <h2 class="my-10 text-3xl font-bold">For Loop</h2>
+          <p class="text-xl my-2">
+            Syntax :   
+          </p>
+          <img class="my-2" src="./image/forLoop.png" alt="" max-width="60%">
+  
+          <p class="text-xl my-2">
+            Example :   
+          </p>
+            <img src="./image/forloopEx.png" alt="" max-width="60%">
+            <p class="text-xl my-2">
+              Output :   
+            </p>
+  
+            <img src="./image/forLoopOut.png" alt="" max-width="60%">
+        </div>
+
+        <div class="do_while_loop">
+          <h2 class="my-10 text-3xl font-bold">Do While Loop</h2>
+          <p class="text-xl my-2">
+            Syntax :   
+          </p>
+          <img class="my-2" src="./image/whileLoop.png" alt="" max-width="60%">
+  
+          <p class="text-xl my-2">
+            Example :   
+          </p>
+            <img src="./image/whileEx.png" alt="" max-width="60%">
+            <p class="text-xl my-2">
+              Output :   
+            </p>
+  
+            <img src="./image/whileOut.png" alt="" max-width="60%">
+        </div>
+
+        <div class="until_loop">
+          <h2 class="my-10 text-3xl font-bold">Do While Loop</h2>
+          <p class="text-xl my-2">
+            Syntax :   
+          </p>
+          <img class="my-2" src="./image/untilLoop.png" alt="" max-width="60%">
+  
+          <p class="text-xl my-2">
+            Example :   
+          </p>
+            <img src="./image/untilEx.png" alt="" max-width="60%">
+            <p class="text-xl my-2">
+              Output :   
+            </p>
+  
+            <img src="./image/untilOut.png" alt="" max-width="60%">
+        </div>
+
+     </article>
+    </section>
+
+
+    <section class="containers" id="case_statement">
+      <h1 class="text-4xl pt-6 pb-3 mt-10 px-4 font-bold text-blue-600">
+        7. Case Statement
+     </h1>
+     <article class="prose px-20 py-5 font-khmer">
+      <p class="text-xl">Loop គឺជាបណ្តុំនៃកូដ ដែលវាធ្វើម្តងហើយម្តងទៀត រហូតដល់ជួបលក្ខខ័ណ្ឌមិនពិតទើបវាឈប់ធ្វើការ។ Loop មាន for Loop, while loop, until loop។</p>
+        
+      <div class="case_statement">
+        <p class="text-xl my-2">
+          Syntax :   
+        </p>
+        <img class="my-2" src="./image/Screenshot 2023-01-12 194703.png" alt="" max-width="50%">
+
+        <p class="text-xl my-2">
+          Example :   
+        </p>
+          <img src="./image/adsfa.png" alt="" max-width="60%">
+          <p class="text-xl my-2">
+            Output :   
+          </p>
+
+          <img src="./image/output.png" alt="" max-width="60%">
+      </div>
+     </article>
+    </section>
+
+    <section class="containers" id="function">
+      <h1 class="text-4xl pt-6 pb-3 mt-10 px-4 font-bold text-blue-600">
+        8. Function Statement
+     </h1>
+     <article class="prose px-20 py-5 font-khmer">
+      <p class="text-xl">Function គឺជាការបំបែក Command ទៅជាប្លុកតូចៗដើ្បមីងាយស្រួលប្រើប្រាស់ដោយមិនបាច់សរសេ command ដ៏ដែលៗប្រកាស់ Function ម្តងអាចប្រើបានច្រើនដង់។</p>
+      <p class="text-xl mt-5">ការបង្កើត Function មានអត្ថប្រយោជន៍ដូចជា៖</p>
+      <ul class="mt-6 ml-6 text-xl list-disc">
+        <li>ងាយស្រួលប្រើប្រាស់</li>
+        <li>ងាយស្រួលយល់</li>
+        <li>មិនសរសេរច្រើនដង</li>
+        <li>អាចហៅប្រើច្រើនដង</li>
+      </ul>
+
+      <p class="text-xl my-2">
+        Example :   
+      </p>
+        <img src="./image/Picture2.png" alt="" max-width="60%">
+
+     </article>
+    </section>
+
+  </body>
+</html>
